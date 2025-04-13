@@ -29,8 +29,8 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 
-from google.colab import userdata
-os.environ["GOOGLE_API_KEY"] = userdata.get("GOOGLE_API_KEY")
+import os
+os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]  # if using Streamlit secrets
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile rag_streamlit.py
@@ -301,7 +301,7 @@ from google.colab import userdata
 # Terminate open tunnels if exist
 ngrok.kill()
 
-ngrok.set_auth_token(userdata.get('NGROK_API_KEY'))
+ngrok.set_auth_token(os.getenv("NGROK_API_KEY"))
 
 # Open an HTTPs tunnel on port XXXX which you get from your `logs.txt` file
 ngrok_tunnel = ngrok.connect(8989)
