@@ -294,7 +294,6 @@ os.environ["GOOGLE_API_KEY"] = userdata.get("GEMINI_API_KEY")
 # if __name__ == "__main__":
 #     main()
 
-!streamlit run rag_streamlit.py --server.port=8989 &>./logs.txt &
 
 from pyngrok import ngrok
 from google.colab import userdata
