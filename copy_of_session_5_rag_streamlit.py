@@ -30,7 +30,7 @@ from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
 
 from google.colab import userdata
-os.environ["GOOGLE_API_KEY"] = userdata.get("GEMINI_API_KEY")
+os.environ["GOOGLE_API_KEY"] = userdata.get("GOOGLE_API_KEY")
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile rag_streamlit.py
