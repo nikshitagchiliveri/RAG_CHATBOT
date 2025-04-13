@@ -28,9 +28,12 @@ from langchain_community.vectorstores import Chroma
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
-
+from dotenv import load_dotenv
 import os
-os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]  # if using Streamlit secrets
+
+load_dotenv()
+os.environ["GOOGLE_API_KEY"] = os.getenv("GOOGLE_API_KEY")
+
 
 # Commented out IPython magic to ensure Python compatibility.
 # %%writefile rag_streamlit.py
